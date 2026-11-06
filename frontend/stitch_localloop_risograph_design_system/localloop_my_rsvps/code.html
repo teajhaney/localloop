@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My RSVPs — LocalLoop</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#005236",
+            "surface-container": "#f0edf1",
+            "on-error-container": "#93000a",
+            "secondary-fixed": "#6ffbbe",
+            "secondary-fixed-dim": "#4edea3",
+            "on-surface-variant": "#464555",
+            "on-secondary-container": "#00714d",
+            "inverse-surface": "#303033",
+            "on-primary-fixed-variant": "#3323cc",
+            "surface-bright": "#fbf8fc",
+            "surface": "#fbf8fc",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb95f",
+            "on-primary-container": "#dad7ff",
+            "primary-container": "#4f46e5",
+            "primary": "#3525cd",
+            "inverse-on-surface": "#f3f0f4",
+            "on-tertiary-container": "#ffd4a4",
+            "on-tertiary-fixed-variant": "#653e00",
+            "on-background": "#1b1b1e",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "tertiary": "#684000",
+            "outline-variant": "#c7c4d8",
+            "surface-container-highest": "#e4e1e6",
+            "surface-container-low": "#f6f2f7",
+            "outline": "#777587",
+            "secondary": "#006c49",
+            "on-tertiary-fixed": "#2a1700",
+            "surface-dim": "#dcd9dd",
+            "on-error": "#ffffff",
+            "background": "#fbf8fc",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e4e1e6",
+            "secondary-container": "#6cf8bb",
+            "tertiary-container": "#885500",
+            "surface-tint": "#4d44e3",
+            "surface-container-high": "#eae7eb",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed": "#002113",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1b1b1e",
+            "primary-fixed": "#e2dfff",
+            "inverse-primary": "#c3c0ff",
+            "primary-fixed-dim": "#c3c0ff",
+            "on-primary-fixed": "#0f0069",
+            "tertiary-fixed": "#ffddb8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin-lg": "4rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Geist"],
+            "body-sm": ["Geist"],
+            "label-sm": ["Geist"],
+            "headline-lg": ["Geist"],
+            "headline-lg-mobile": ["Geist"],
+            "body-md": ["Geist"],
+            "display-hero-mobile": ["Geist"],
+            "label-md": ["Geist"],
+            "body-lg": ["Geist"],
+            "display-hero": ["Geist"],
+            "headline-md": ["Geist"]
+          },
+          "fontSize": {
+            "headline-sm": ["16px", { "lineHeight": "22px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "-0.005em", "fontWeight": "500" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "display-hero": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar Component (Shared Components Anchor) -->
+<header class="bg-surface-container-lowest/95 dark:bg-inverse-surface/95 backdrop-blur-md docked full-width top-0 sticky z-50 h-16 border-b border-outline-variant/40 dark:border-outline-variant/20 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
+<!-- Left: Logo & Search -->
+<div class="flex items-center gap-6">
+<a class="font-headline-md text-headline-md tracking-tight font-bold text-on-background dark:text-inverse-on-surface flex items-center gap-2 group" href="#">
+<span class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold text-base transition-transform group-hover:scale-105">
+            L
+          </span>
+<span>LocalLoop</span>
+</a>
+<div class="hidden md:flex items-center relative">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span>
+<input class="pl-9 pr-4 py-1.5 text-body-sm bg-surface-container-low border border-outline-variant/50 rounded-lg w-64 focus:outline-none focus:border-primary-container focus:bg-surface-container-lowest transition-all" placeholder="Search city, host, or vibe..." type="text"/>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 h-full pt-1">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-on-background dark:hover:text-inverse-on-surface transition-colors pb-1 text-label-md font-label-md flex items-center h-full" href="#">
+          Browse
+        </a>
+<!-- ACTIVE STATE: My RSVPs -->
+<a class="text-primary dark:text-inverse-primary font-medium border-b-2 border-primary dark:border-inverse-primary pb-1 text-label-md font-label-md flex items-center h-full" href="#">
+          My RSVPs
+        </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-on-background dark:hover:text-inverse-on-surface transition-colors pb-1 text-label-md font-label-md flex items-center h-full" href="#">
+          Organizer
+        </a>
+</nav>
+<!-- Right Trailing Cluster -->
+<div class="flex items-center gap-3">
+<button aria-label="Notifications" class="w-9 h-9 rounded-lg border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface text-label-md font-label-md transition-all duration-150 active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Create Event</span>
+</button>
+<div class="h-4 w-px bg-outline-variant/40 mx-1 hidden sm:block"></div>
+<!-- Profile Avatar Pill -->
+<button class="flex items-center gap-2 pl-1 pr-2.5 py-1 rounded-full border border-outline-variant/40 hover:border-outline-variant bg-surface-container-lowest transition-colors" type="button">
+<div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-label-sm font-semibold overflow-hidden">
+            MS
+          </div>
+<span class="font-label-md text-label-md text-on-surface font-medium hidden sm:inline">Maya S.</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 max-w-[1200px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<!-- Page Header & Segmented Tabs -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-outline-variant/30">
+<div>
+<div class="flex items-center gap-2.5 mb-1.5">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">My RSVPs</h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed font-semibold">
+            Member
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Manage your confirmed spots and past community gatherings across San Francisco.
+        </p>
+</div>
+<!-- Segmented Tab Switcher -->
+<div class="inline-flex p-1 bg-surface-container-low rounded-xl border border-outline-variant/40 self-start md:self-auto">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg font-label-md text-label-md bg-surface-container-lowest text-on-surface shadow-sm font-medium transition-all" id="tab-upcoming-btn" onclick="switchTab('upcoming')">
+<span>Upcoming</span>
+<span class="px-1.5 py-0.5 text-label-sm font-label-sm rounded-full bg-primary-fixed text-on-primary-fixed font-semibold">3</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" id="tab-past-btn" onclick="switchTab('past')">
+<span>Past / Canceled</span>
+<span class="px-1.5 py-0.5 text-label-sm font-label-sm rounded-full bg-surface-container-high text-on-surface-variant font-semibold">2</span>
+</button>
+</div>
+</div>
+<!-- UPCOMING TAB CONTENT -->
+<div class="space-y-5 pt-8" id="tab-upcoming">
+<!-- Section Quick Context -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">calendar_today</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Confirmed Upcoming Gatherings</h2>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Instant entry with host guestlists</span>
+</div>
+<!-- RSVP Card 1: Ceramics Studio -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-5 sm:p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 flex-1">
+<!-- Calendar Date Block -->
+<div class="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-primary-fixed/40 border border-primary-fixed flex flex-col items-center justify-center text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">NOV</span>
+<span class="font-headline-lg text-headline-lg leading-none text-on-primary-fixed font-extrabold my-0.5">24</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SUN</span>
+</div>
+<!-- Thumbnail Cover Strip -->
+<div class="w-full sm:w-28 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close up photograph of hands shaping damp clay pottery on a spinning pottery wheel inside a brightly lit bohemian ceramics studio in San Francisco. Warm ambient morning sunlight streams through industrial loft windows illuminating earthy ceramic textures and glaze bowls with calm minimalist charm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIyFKYvbOrtICnrd8ncpOlZSWazGru3NkFJG8OOcX633W5_8lYZYQibz2apxoSWmKHDjM1r5RFfGZGvgj7ZQob65QM6Mgn2dun2ak48F8AcolUKA0an2orhUvOBaSNcxO9JzGXV08vNGF-LJML35mWTXNEaX4Rt-X4IVLeOmlTWWaZJvp6AnrvuQXWW_pXm0Iii8WPzVdCTzfMi6c5Iij-IypGe4lyUnfpARNuenM"/>
+</div>
+<!-- Event Details -->
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container/30 text-on-secondary-container border border-secondary-container">
+<span class="material-symbols-outlined text-[13px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Going</span>
+</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-low text-on-surface-variant">
+                Workshop
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+                • 1 spot reserved for you
+              </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight truncate">
+              Ceramics Wheel Open Studio: Glazing &amp; Hand-Throwing
+            </h3>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 mt-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+                4:00 PM – 6:30 PM PST
+              </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+                Clay By The Bay · Nob Hill, SF
+              </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">group</span>
+                18 of 20 spots filled
+              </span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3 pt-4 sm:pt-0 border-t sm:border-t-0 border-outline-variant/30 lg:border-l lg:pl-6 border-outline-variant/30 justify-end flex-shrink-0">
+<button class="p-2 rounded-lg border border-outline-variant/40 hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors" title="Add to Calendar (.ics)" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+</button>
+<a class="px-3.5 py-2 rounded-lg border border-outline-variant/40 hover:bg-surface-container-low text-on-surface font-label-md text-label-md transition-colors" href="#">
+            View Event
+          </a>
+<button class="px-3.5 py-2 rounded-lg border border-error-container/80 text-error hover:bg-error-container/20 font-label-md text-label-md transition-colors" onclick="confirmCancel('Ceramics Wheel Open Studio')" type="button">
+            Cancel RSVP
+          </button>
+</div>
+</article>
+<!-- RSVP Card 2: Creative Coding Workshop -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-5 sm:p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 flex-1">
+<!-- Calendar Date Block -->
+<div class="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-surface-container-high/60 border border-outline-variant/40 flex flex-col items-center justify-center text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">NOV</span>
+<span class="font-headline-lg text-headline-lg leading-none text-on-surface font-extrabold my-0.5">27</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">WED</span>
+</div>
+<!-- Thumbnail Cover Strip -->
+<div class="w-full sm:w-28 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Minimalist design tech studio at dusk with developers sitting around wooden communal tables working on generative code visualizations on modern laptops. Soft ambient purple and indigo geometric projections illuminate the concrete loft walls creating a focused creative community workshop atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO29mSx864ihjkxFbPDIaONuoG8-XrL3xQ4GueVm41yQSTbmA9dnUbNS4mS634xkKj4adfA9L2BaxHe1zgQ9Cxvu0WREqJpSiOhGGV-hJUaJFo2rjDmMJ679M-ZLoeJfI6xVnwY_SHKOcd9W8epdhSOpQk-jy2bSIwrCSo8ityDCxQkUnndZy0016_M1ANNgmML-q7rrCTQ9ieq8WX90PZH7FVFTRb3-rfqVr25nk"/>
+</div>
+<!-- Event Details -->
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container/30 text-on-secondary-container border border-secondary-container">
+<span class="material-symbols-outlined text-[13px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Going</span>
+</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-low text-on-surface-variant">
+                Meetup
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+                • 1 spot reserved for you
+              </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight truncate">
+              Creative Coding &amp; WebGL Shaders Workshop
+            </h3>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 mt-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+                6:30 PM – 8:30 PM PST
+              </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+                Heavybit Clubhouse · SOMA, SF
+              </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">group</span>
+                32 of 35 spots filled
+              </span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3 pt-4 sm:pt-0 border-t sm:border-t-0 border-outline-variant/30 lg:border-l lg:pl-6 border-outline-variant/30 justify-end flex-shrink-0">
+<button class="p-2 rounded-lg border border-outline-variant/40 hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors" title="Add to Calendar (.ics)" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+</button>
+<a class="px-3.5 py-2 rounded-lg border border-outline-variant/40 hover:bg-surface-container-low text-on-surface font-label-md text-label-md transition-colors" href="#">
+            View Event
+          </a>
+<button class="px-3.5 py-2 rounded-lg border border-error-container/80 text-error hover:bg-error-container/20 font-label-md text-label-md transition-colors" onclick="confirmCancel('Creative Coding &amp; WebGL Shaders Workshop')" type="button">
+            Cancel RSVP
+          </button>
+</div>
+</article>
+<!-- RSVP Card 3: Morning Run Club -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-5 sm:p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 flex-1">
+<!-- Calendar Date Block -->
+<div class="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-surface-container-high/60 border border-outline-variant/40 flex flex-col items-center justify-center text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">DEC</span>
+<span class="font-headline-lg text-headline-lg leading-none text-on-surface font-extrabold my-0.5">02</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">MON</span>
+</div>
+<!-- Thumbnail Cover Strip -->
+<div class="w-full sm:w-28 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Group of diverse runners gathering under crisp morning fog in Crissy Field San Francisco with the silhouette of the Golden Gate Bridge visible in the gentle sunrise distance. Clean athletic apparel, calm energizing mood, and damp eucalyptus park foliage bathed in clean natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk8SGb50q4np2hVzlc1sB0Em3n8htKb5L0-04I7itLerZ53ns77hd8AbHjrevi7n2cVPQ6CYupZzc4DCeyhuh-DiYp2Mme3fytdcK8t2jT2M2WAnSLsQ3V9yLF_h3cks575EjUXaj5xgcdPt5AkABjJWe8-TwgT5bfW00ZABWVXDBIq1pGCBVPG4VN1wTAMmTf1spKg-UjFKkoSv5ae7GL2pSeBy6PWKN50ZhZ3Zo"/>
+</div>
+<!-- Event Details -->
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container/30 text-on-secondary-container border border-secondary-container">
+<span class="material-symbols-outlined text-[13px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Going</span>
+</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-low text-on-surface-variant">
+                Social
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+                • 1 spot reserved for you
+              </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight truncate">
+              Presidio Morning Run Club &amp; Pour-Over Coffee
+            </h3>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 mt-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+                7:15 AM – 8:30 AM PST
+              </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+                Equator Coffees · Fort Mason, SF
+              </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">group</span>
+                14 of 25 spots filled
+              </span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3 pt-4 sm:pt-0 border-t sm:border-t-0 border-outline-variant/30 lg:border-l lg:pl-6 border-outline-variant/30 justify-end flex-shrink-0">
+<button class="p-2 rounded-lg border border-outline-variant/40 hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors" title="Add to Calendar (.ics)" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+</button>
+<a class="px-3.5 py-2 rounded-lg border border-outline-variant/40 hover:bg-surface-container-low text-on-surface font-label-md text-label-md transition-colors" href="#">
+            View Event
+          </a>
+<button class="px-3.5 py-2 rounded-lg border border-error-container/80 text-error hover:bg-error-container/20 font-label-md text-label-md transition-colors" onclick="confirmCancel('Presidio Morning Run Club &amp; Pour-Over Coffee')" type="button">
+            Cancel RSVP
+          </button>
+</div>
+</article>
+</div>
+<!-- PAST & CANCELED TAB CONTENT (Hidden by default, switched via JS) -->
+<div class="hidden space-y-5 pt-8" id="tab-past">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[20px]">history</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Past and Canceled Gatherings</h2>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Archived attendance logs</span>
+</div>
+<!-- Past Event Card 1: Attended -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-5 sm:p-6 opacity-90 hover:opacity-100 transition-opacity flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 flex-1">
+<!-- Calendar Date Block -->
+<div class="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-surface-container-low border border-outline-variant/40 flex flex-col items-center justify-center text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-bold">OCT</span>
+<span class="font-headline-lg text-headline-lg leading-none text-on-surface-variant font-extrabold my-0.5">18</span>
+<span class="font-label-sm text-label-sm text-outline">FRI</span>
+</div>
+<!-- Thumbnail Cover Strip -->
+<div class="w-full sm:w-28 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container grayscale-[30%]">
+<img class="w-full h-full object-cover" data-alt="Editorial indoor photography of a cozy communal dinner table inside an independent bookstore in the Mission district of San Francisco. String warm fairy lights hang over vintage wooden bookcases and small clusters of people smiling and conversing over wine and appetizers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhzDxri68fq8PTRqyZsL2LNZbLlaBidXDneuvi3sJ1x_EovISDAqsybwuNinyo8Y1LJgevMhVS6K_3oqnEwUCJazCr9nj1V0XeYRVY4YQNzV6mFAtr-AgAdIyEMkqxwlKnEWFkqhUzld-tLTwp_9YiiCHltexZ9BTJbr5gfZzuXNPGmBgkex9mjp1G29Ut09WXEC5GA5-lANmnZjOcJnBl1yK_LBs8BN9tvYZogsw"/>
+</div>
+<!-- Event Details -->
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant/40">
+<span class="material-symbols-outlined text-[13px]">check</span>
+<span>Attended</span>
+</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-low text-on-surface-variant">
+                Social
+              </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight truncate">
+              Independent Book Club: Speculative Fiction &amp; Natural Wine
+            </h3>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 mt-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+                7:00 PM – 9:00 PM PST
+              </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+                Adobe Books · Mission District, SF
+              </span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3 pt-4 sm:pt-0 border-t sm:border-t-0 border-outline-variant/30 lg:border-l lg:pl-6 border-outline-variant/30 justify-end flex-shrink-0">
+<a class="px-3.5 py-2 rounded-lg border border-outline-variant/40 hover:bg-surface-container-low text-on-surface font-label-md text-label-md transition-colors" href="#">
+            View Event
+          </a>
+<button class="px-3.5 py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">
+            Browse Host's Next
+          </button>
+</div>
+</article>
+<!-- Past Event Card 2: Canceled by User -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-5 sm:p-6 opacity-75 hover:opacity-95 transition-opacity flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 flex-1">
+<!-- Calendar Date Block -->
+<div class="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-error-container/30 border border-error-container flex flex-col items-center justify-center text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error font-bold">OCT</span>
+<span class="font-headline-lg text-headline-lg leading-none text-error font-extrabold my-0.5">06</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SUN</span>
+</div>
+<!-- Thumbnail Cover Strip -->
+<div class="w-full sm:w-28 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container grayscale">
+<img class="w-full h-full object-cover" data-alt="Quiet sun-dappled urban garden rooftop in Hayes Valley San Francisco surrounded by raised wooden planter beds full of herbs, tomatoes, and organic flowers. Warm afternoon breeze creating a peaceful neighborhood sanctuary backdrop in minimalist architectural composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYqRsfownlOSSuqzMlrNqwWqDZ-cZ_fcqPmLT9WW66D341kz65uAblwHyQrusZOnbgk5ii46biFA4tKJ56Mu7SDX4cSFfR7soNMy8LJIOEvJLgAEL-doF35ADDpEmHM43parcTI3JiCskTM9dw97PJKnjbv4WyxGF_ARNpVExS5-Sth7rniRgGO4cet9lRPITQUvwd4TFtkzr_BBONkNwx2tPbn5dS0qXj8sZvbt0"/>
+</div>
+<!-- Event Details -->
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-error-container/40 text-error border border-error-container">
+<span class="material-symbols-outlined text-[13px]">close</span>
+<span>RSVP Canceled by you</span>
+</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-low text-on-surface-variant">
+                Community
+              </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface-variant line-through font-semibold tracking-tight truncate">
+              Rooftop Gardening &amp; Seed Propagation Exchange
+            </h3>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-4 mt-2 text-body-sm font-body-sm text-outline">
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                11:00 AM – 1:30 PM PST
+              </span>
+<span class="inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                Page Street Commons · Hayes Valley, SF
+              </span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3 pt-4 sm:pt-0 border-t sm:border-t-0 border-outline-variant/30 lg:border-l lg:pl-6 border-outline-variant/30 justify-end flex-shrink-0">
+<a class="px-3.5 py-2 rounded-lg border border-outline-variant/40 hover:bg-surface-container-low text-on-surface font-label-md text-label-md transition-colors" href="#">
+            Browse Similar
+          </a>
+</div>
+</article>
+</div>
+<!-- Empty State Component (Demonstration / Can be toggled or previewed) -->
+<div class="hidden mt-12 bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-12 text-center max-w-lg mx-auto" id="empty-state-preview">
+<div class="w-14 h-14 mx-auto rounded-full bg-primary-fixed/40 text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[28px]">event_busy</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 font-semibold">
+        No upcoming RSVPs yet
+      </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+        You haven't reserved a spot for any upcoming gatherings. Explore local workshops, meetups, and open studios happening this week.
+      </p>
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md transition-colors shadow-sm" href="#">
+<span>Browse events</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</main>
+<!-- Cancellation Confirmation Modal Dialog (RSVP Management) -->
+<dialog class="backdrop:bg-on-background/40 backdrop:backdrop-blur-sm bg-transparent p-4 w-full max-w-md m-auto" id="cancel-dialog">
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-outline-variant/40 shadow-xl">
+<div class="w-10 h-10 rounded-full bg-error-container/40 text-error flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[22px]">event_busy</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1.5">
+        Release your spot?
+      </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-5">
+        Are you sure you want to cancel your RSVP for <strong class="text-on-surface font-medium" id="cancel-event-name">this event</strong>? This frees your reserved place immediately for other community members.
+      </p>
+<div class="flex items-center justify-end gap-3">
+<button class="px-4 py-2 rounded-lg border border-outline-variant/40 text-on-surface hover:bg-surface-container-low font-label-md text-label-md transition-colors" onclick="closeCancelModal()" type="button">
+          Keep My Spot
+        </button>
+<button class="px-4 py-2 rounded-lg bg-error text-on-error hover:opacity-90 font-label-md text-label-md transition-all shadow-sm" onclick="executeCancellation()" type="button">
+          Confirm Cancellation
+        </button>
+</div>
+</div>
+</dialog>
+<!-- Toast Notification -->
+<div class="fixed bottom-6 right-6 z-50 bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-xl shadow-lg flex items-center gap-3 font-body-sm text-body-sm transition-all duration-200 opacity-0 pointer-events-none translate-y-3" id="toast">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span id="toast-message">RSVP released. Spot given back to community.</span>
+</div>
+<!-- Footer Component (Shared Components Anchor) -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant/30 dark:border-outline-variant/20 docked full-width bottom-0 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+<span class="font-headline-sm text-headline-sm font-bold text-on-background dark:text-inverse-on-surface">LocalLoop</span>
+<span class="hidden sm:inline text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant">
+          © 2025 LocalLoop Inc. All rights reserved. Free RSVPs, zero clutter.
+        </span>
+</div>
+<nav class="flex flex-wrap items-center justify-center gap-6 font-label-sm text-label-sm">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">About</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Community Guidelines</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Safety &amp; Trust</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150" href="#">Terms of Service</a>
+</nav>
+</div>
+</footer>
+<!-- Script for Segmented Tab Switch and Interactions -->
+<script>
+    function switchTab(target) {
+      const upTab = document.getElementById('tab-upcoming');
+      const pastTab = document.getElementById('tab-past');
+      const upBtn = document.getElementById('tab-upcoming-btn');
+      const pastBtn = document.getElementById('tab-past-btn');
+
+      if (target === 'upcoming') {
+        upTab.classList.remove('hidden');
+        pastTab.classList.add('hidden');
+
+        upBtn.className = "flex items-center gap-2 px-4 py-2 rounded-lg font-label-md text-label-md bg-surface-container-lowest text-on-surface shadow-sm font-medium transition-all";
+        pastBtn.className = "flex items-center gap-2 px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all";
+      } else {
+        upTab.classList.add('hidden');
+        pastTab.classList.remove('hidden');
+
+        pastBtn.className = "flex items-center gap-2 px-4 py-2 rounded-lg font-label-md text-label-md bg-surface-container-lowest text-on-surface shadow-sm font-medium transition-all";
+        upBtn.className = "flex items-center gap-2 px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all";
+      }
+    }
+
+    const cancelDialog = document.getElementById('cancel-dialog');
+    const cancelNameSpan = document.getElementById('cancel-event-name');
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toast-message');
+
+    function confirmCancel(eventName) {
+      cancelNameSpan.textContent = eventName;
+      cancelDialog.showModal();
+    }
+
+    function closeCancelModal() {
+      cancelDialog.close();
+    }
+
+    function executeCancellation() {
+      closeCancelModal();
+      showToast('RSVP canceled. Your spot was freed for the waitlist.');
+    }
+
+    function showToast(message) {
+      toastMsg.textContent = message;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+      }, 3500);
+    }
+  </script>
+</body></html>

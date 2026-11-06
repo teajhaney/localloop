@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LocalLoop — Curated Community Gatherings</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#1b1b1e",
+            "background": "#fbf8fc",
+            "primary-fixed": "#e2dfff",
+            "on-tertiary-container": "#ffd4a4",
+            "on-primary-fixed-variant": "#3323cc",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#c7c4d8",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed-variant": "#653e00",
+            "surface-container-low": "#f6f2f7",
+            "on-error-container": "#93000a",
+            "surface": "#fbf8fc",
+            "on-secondary-fixed-variant": "#005236",
+            "on-error": "#ffffff",
+            "inverse-primary": "#c3c0ff",
+            "on-tertiary-fixed": "#2a1700",
+            "primary": "#3525cd",
+            "secondary": "#006c49",
+            "surface-container": "#f0edf1",
+            "outline": "#777587",
+            "surface-dim": "#dcd9dd",
+            "tertiary-container": "#885500",
+            "inverse-surface": "#303033",
+            "tertiary-fixed": "#ffddb8",
+            "surface-container-highest": "#e4e1e6",
+            "surface-variant": "#e4e1e6",
+            "surface-tint": "#4d44e3",
+            "error": "#ba1a1a",
+            "secondary-container": "#6cf8bb",
+            "on-surface-variant": "#464555",
+            "on-primary": "#ffffff",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#c3c0ff",
+            "on-primary-fixed": "#0f0069",
+            "surface-container-high": "#eae7eb",
+            "inverse-on-surface": "#f3f0f4",
+            "on-surface": "#1b1b1e",
+            "tertiary-fixed-dim": "#ffb95f",
+            "tertiary": "#684000",
+            "secondary-fixed": "#6ffbbe",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed": "#002113",
+            "on-secondary-container": "#00714d",
+            "surface-bright": "#fbf8fc",
+            "secondary-fixed-dim": "#4edea3",
+            "on-primary-container": "#dad7ff",
+            "primary-container": "#4f46e5"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "margin-lg": "4rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-hero": ["Geist", "sans-serif"],
+            "body-md": ["Geist", "sans-serif"],
+            "headline-lg-mobile": ["Geist", "sans-serif"],
+            "headline-md": ["Geist", "sans-serif"],
+            "body-lg": ["Geist", "sans-serif"],
+            "label-md": ["Geist", "sans-serif"],
+            "display-hero-mobile": ["Geist", "sans-serif"],
+            "label-sm": ["Geist", "sans-serif"],
+            "headline-sm": ["Geist", "sans-serif"],
+            "body-sm": ["Geist", "sans-serif"],
+            "headline-lg": ["Geist", "sans-serif"]
+          },
+          "fontSize": {
+            "display-hero": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "-0.005em", "fontWeight": "500" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["16px", { "lineHeight": "22px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.025em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-flex;
+      vertical-align: middle;
+      align-items: center;
+      justify-content: center;
+    }
+    .custom-card-shadow {
+      box-shadow: 0 1px 3px 0 rgba(24, 24, 27, 0.04), 0 1px 2px -1px rgba(24, 24, 27, 0.03);
+    }
+    .custom-card-hover {
+      transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .custom-card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -4px rgba(24, 24, 27, 0.08), 0 4px 6px -2px rgba(24, 24, 27, 0.03);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar (Shared Component JSON Source) -->
+<header class="bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/40 shadow-sm docked full-width top-0 sticky z-50 h-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
+<!-- Left: Brand Logo & Navigation -->
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2 group" href="#">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold shadow-sm transition-transform duration-150 group-hover:scale-95">
+<span class="material-symbols-outlined text-[18px]">all_inclusive</span>
+</div>
+<span class="font-headline-md text-headline-md tracking-tight font-bold text-on-background">LocalLoop</span>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center space-x-6 text-label-md font-label-md">
+<a class="text-primary font-medium border-b-2 border-primary pb-1 flex items-center gap-1.5 transition-colors" href="#">
+            Browse
+          </a>
+<a class="text-on-surface-variant hover:text-on-background transition-colors pb-1" href="#">
+            My RSVPs
+          </a>
+<a class="text-on-surface-variant hover:text-on-background transition-colors pb-1" href="#">
+            Organizer
+          </a>
+</nav>
+</div>
+<!-- Right: Actions & User Preview -->
+<div class="flex items-center gap-3">
+<button class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-outline-variant/50 text-on-surface hover:bg-surface-container-low transition-colors duration-150 text-label-md font-label-md" type="button">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+          Create Event
+        </button>
+<button aria-label="Notifications" class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-150 rounded-lg relative" type="button">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<div class="h-5 w-px bg-outline-variant/40 mx-1 hidden sm:block"></div>
+<!-- Signed-in Profile Pill Dropdown Trigger -->
+<div class="relative group">
+<button class="flex items-center gap-2 p-1 pl-2 pr-2.5 rounded-full border border-outline-variant/60 hover:border-outline transition-all duration-150 bg-surface-container-lowest" type="button">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest overflow-hidden flex items-center justify-center text-label-sm font-label-sm text-on-surface-variant">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="A clean studio portrait photograph of a young creative urban professional with warm soft natural lighting, a gentle smile, neutral background tones of stone and linen, embodying a focused, approachable modern community member." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5Rll_BNg93himwYigSOtcTf2_eVJuPrYbEn3pTusYoZq7_eZ7l1uMhOKOJXeEd-AZpmdqC7yAEoF7YRfvgbrygTkVxax7kj7mhLcR1ojxbfB5IChWTpfjGCnySpPd6advVmfcsn_CHQ9toXIYd4Qe4RpC7S6GbRwHFzQv-13VmpZWSQb-Fm7YI3mFJUYFfgr8cWIujU-NlbyRG3Leud6kXgnznrsrVdQwtheYp08"/>
+</div>
+<span class="text-label-md font-label-md text-on-surface font-medium hidden sm:inline">Maya S.</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</button>
+<!-- Dropdown Menu Preview -->
+<div class="absolute right-0 mt-2 w-48 bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-lg py-1.5 hidden group-hover:block transition-all z-50">
+<div class="px-3 py-2 border-b border-outline-variant/30">
+<p class="text-label-sm font-label-sm text-on-surface font-semibold">Maya Sanders</p>
+<p class="text-label-sm font-label-sm text-outline">maya@designloop.co</p>
+</div>
+<a class="flex items-center gap-2 px-3 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-background" href="#">
+<span class="material-symbols-outlined text-[18px]">event_available</span> My RSVPs (3)
+            </a>
+<a class="flex items-center gap-2 px-3 py-2 text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-background" href="#">
+<span class="material-symbols-outlined text-[18px]">tune</span> Settings
+            </a>
+<div class="h-px bg-outline-variant/30 my-1"></div>
+<a class="flex items-center gap-2 px-3 py-2 text-label-md font-label-md text-error hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined text-[18px]">logout</span> Sign Out
+            </a>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+<!-- Hero Section -->
+<section class="max-w-3xl mx-auto text-center pt-6 pb-2 space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/50 text-label-sm font-label-sm text-on-surface-variant mb-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+        Zero cost • Instant confirmation • 100% Free RSVPs
+      </div>
+<h1 class="font-display-hero text-display-hero tracking-tight text-on-background hidden md:block">
+        Find what's happening in your city
+      </h1>
+<h1 class="font-display-hero-mobile text-display-hero-mobile tracking-tight text-on-background md:hidden">
+        Find what's happening in your city
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
+        Curated community gatherings, workshops, and meetups. Free to join, direct RSVP.
+      </p>
+<!-- Prominent Search Bar -->
+<div class="pt-4 max-w-2xl mx-auto">
+<div class="relative flex items-center bg-surface-container-lowest rounded-2xl border border-outline-variant/60 shadow-sm focus-within:border-primary-container focus-within:ring-2 focus-within:ring-primary-container/20 transition-all p-1.5">
+<span class="material-symbols-outlined text-outline ml-3 mr-2 text-[22px]">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-background placeholder:text-outline font-body-md text-body-md py-2.5 px-1 outline-none" placeholder="Search by topic, neighborhood, or organizer..." type="text"/>
+<div class="hidden sm:flex items-center gap-1.5 mr-2 px-2 py-1 bg-surface-container rounded-lg border border-outline-variant/40 text-label-sm font-label-sm text-on-surface-variant select-none">
+<span>⌘</span><span>K</span>
+</div>
+<button class="bg-primary-container hover:bg-primary text-on-primary px-5 py-2.5 rounded-xl font-label-md text-label-md transition-all active:scale-[0.98] shadow-sm flex items-center gap-1.5" type="button">
+<span>Find</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Filter Console -->
+<section class="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl p-4 sm:p-5 shadow-sm space-y-4">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-3 border-b border-outline-variant/20">
+<!-- Locality and Date Selectors -->
+<div class="flex flex-wrap items-center gap-2.5">
+<!-- City Dropdown -->
+<button class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container border border-outline-variant/40 text-label-md font-label-md text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+<span class="font-medium">San Francisco, CA</span>
+<span class="material-symbols-outlined text-[16px] text-outline">unfold_more</span>
+</button>
+<!-- Date Range Selector -->
+<button class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container border border-outline-variant/40 text-label-md font-label-md text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-outline text-[18px]">calendar_today</span>
+<span>This Weekend (Nov 22 – 24)</span>
+<span class="material-symbols-outlined text-[16px] text-outline">keyboard_arrow_down</span>
+</button>
+</div>
+<!-- Result Counter -->
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span>Showing <strong class="text-on-surface">24 events</strong></span>
+</div>
+</div>
+<!-- Category Filter Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+<button class="px-4 py-1.5 rounded-full bg-on-background text-surface-container-lowest text-label-md font-label-md whitespace-nowrap shadow-sm" type="button">
+          All
+        </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-background border border-outline-variant/40 text-label-md font-label-md whitespace-nowrap transition-colors" type="button">
+          Meetup
+        </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-background border border-outline-variant/40 text-label-md font-label-md whitespace-nowrap transition-colors" type="button">
+          Workshop
+        </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-background border border-outline-variant/40 text-label-md font-label-md whitespace-nowrap transition-colors" type="button">
+          Popup
+        </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-background border border-outline-variant/40 text-label-md font-label-md whitespace-nowrap transition-colors" type="button">
+          Social
+        </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-background border border-outline-variant/40 text-label-md font-label-md whitespace-nowrap transition-colors" type="button">
+          Other
+        </button>
+</div>
+</section>
+<!-- 3-Column Responsive Event Card Grid -->
+<section class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Morning Run Club & Coffee -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/50 overflow-hidden custom-card-shadow custom-card-hover flex flex-col group">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img alt="Morning Run Club &amp; Coffee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A vibrant outdoor morning gathering of runners jogging through a sunlit tree-lined urban park path in San Francisco with crisp morning light casting soft warm shadows on pavement, surrounded by autumn trees and steam rising from freshly brewed coffee cups at an outdoor bench." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC2AZPbfIRHF5U1VPu-FRlN0MjrQG0z66pkGQ7JsmEzyKgn5ZeE9hEBQ1oErcVqbbQXDf2bJbvCo3wf_1cDtggF9VMKi_RaNRUtUtHo2y6PEbf0WGYjWPZjiTDAcHFH3Y8XwM82apTSNCN5W2_qfR_bIQVVrIZ8m8uI4l_V30lsxjqQjCRzi3fngP5lys8b6sIl100bUvLyStA3JxZw15jBowQPhaSusjAcH-GN9g"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full text-label-sm font-label-sm text-on-surface font-semibold shadow-sm">
+              Social
+            </div>
+<div class="absolute top-3 right-3 bg-surface-container-lowest/95 backdrop-blur-md px-2.5 py-1 rounded-full border border-outline-variant/30 text-label-sm font-label-sm text-on-surface font-medium shadow-sm">
+              12 spots left
+            </div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+<div class="space-y-2">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-primary font-medium">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Sat, Nov 23 • 8:00 AM – 9:30 AM</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Morning Run Club &amp; Coffee
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">pin_drop</span>
+                Precita Park • Bernal Heights
+              </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">28 attending</span>
+<button class="bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md px-4 py-2 rounded-xl transition-all active:scale-95 shadow-sm" type="button">
+                RSVP
+              </button>
+</div>
+</div>
+</article>
+<!-- Card 2: Creative Coding & Shaders Workshop -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/50 overflow-hidden custom-card-shadow custom-card-hover flex flex-col group">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img alt="Creative Coding &amp; Shaders Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="An inspiring close-up of a laptop display in a cozy minimal design studio showing colorful generative GLSL shader art patterns in vivid indigo, teal and violet, accompanied by notebooks, pens and studio lamps casting soft warm ambient indoor lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZbZDe-CdgrZIKhnwv5XsiVbKHCIn2JFhNortx7HxGjz66TXPRVRMteBoi-b9N2TqEz0Tfv53OA2HSGMIKEBM9Wv_taFtyhHhHaMxu1APN0i4n9kETlS0HLS8Y1XZb7-qUbb2mIRCNLBVFbWRRfwqy0HE8STpKjm-Qw5CSdZelddD5RWxrrxf0NHqZzZMrkWRIZ0myLGxq6lrRzPJ9AaQPZVdfcf-aVcrxKlgE7lI"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full text-label-sm font-label-sm text-on-surface font-semibold shadow-sm">
+              Workshop
+            </div>
+<!-- Amber warning badge with dot -->
+<div class="absolute top-3 right-3 bg-amber-50/95 backdrop-blur-md px-2.5 py-1 rounded-full border border-amber-200 text-label-sm font-label-sm text-amber-800 font-medium shadow-sm flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+              Few spots left
+            </div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+<div class="space-y-2">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-primary font-medium">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Sat, Nov 23 • 2:00 PM – 5:00 PM</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Creative Coding &amp; Shaders Workshop
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">pin_drop</span>
+                Noisebridge Hackerspace • Mission
+              </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-amber-700 font-medium">Only 2 seats remaining</span>
+<button class="bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md px-4 py-2 rounded-xl transition-all active:scale-95 shadow-sm" type="button">
+                RSVP
+              </button>
+</div>
+</div>
+</article>
+<!-- Card 3: Analog Photography Photowalk -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/50 overflow-hidden custom-card-shadow custom-card-hover flex flex-col group">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img alt="Analog Photography Photowalk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A tasteful minimalist composition of classic 35mm mechanical analog film cameras arranged on a clean wooden tabletop beside fresh film rolls and contact sheets in an art gallery workshop, illuminated by soft overcast daylight from a large warehouse window." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB79y8tA4pkDM--phJcXf7phwCp1B2KyDZW80nqGPMuzYCDv9pPu5WzVPOJ5KrKTOG0req2yVwpUGYxzSGpvC7tT4tIGRcoiD3L2ilBQ_dQoxq9N89ih3rYnZ4sx2uTM9zgK-_s0Ve32qm5EKoawSwEJwWBc7zl2IwbaVJJLLYOvzj5R7XpJUe4B6uFGgqNpMOp-pccK6LLZRAH7CRjXjYnpRxdxxqzl9Uzd4LWcvc"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full text-label-sm font-label-sm text-on-surface font-semibold shadow-sm">
+              Meetup
+            </div>
+<!-- Muted red / rose badge -->
+<div class="absolute top-3 right-3 bg-rose-50/95 backdrop-blur-md px-2.5 py-1 rounded-full border border-rose-200 text-label-sm font-label-sm text-rose-800 font-medium shadow-sm">
+              Full
+            </div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+<div class="space-y-2">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-outline font-medium">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Sun, Nov 24 • 11:00 AM – 1:30 PM</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Analog Photography Photowalk
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">pin_drop</span>
+                Glass Key Photo • Lower Haight
+              </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline">Capacity reached (20/20)</span>
+<button class="bg-surface-container text-outline cursor-not-allowed font-label-md text-label-md px-4 py-2 rounded-xl border border-outline-variant/30" disabled="" type="button">
+                Full
+              </button>
+</div>
+</div>
+</article>
+<!-- Card 4: Ceramics Wheel Open Studio -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline-variant/50 overflow-hidden custom-card-shadow custom-card-hover flex flex-col group">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img alt="Ceramics Wheel Open Studio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="An artisanal pottery studio setting showing hands shaping wet clay on a rotating ceramic wheel, surrounded by warm terracotta vessels, natural sponge tools, and clean white textured brick walls bathed in soft afternoon golden sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn3txgRyK0AAw_c0h3dJ2hzmL3ZZIa6r4IMZa52o3NeBiOhSy5UdipQPCtX0Y20P0bXv8pI8K7WU6cqGqwQTh1DozbRRuNFmaWgTrRuenq5nIqLFWMHKDLaLWTu8Nj69UC0viF6FTlK8smi_CKdVHNN-BXUmUPV-tFx6pwY02sQ2VQOAeue6xBmC4VBvOX4BxnKwYz7zM_6jXtostiEgOdcwabk3sCQsae-AenfDE"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full text-label-sm font-label-sm text-on-surface font-semibold shadow-sm">
+              Workshop
+            </div>
+<div class="absolute top-3 right-3 bg-surface-container-lowest/95 backdrop-blur-md px-2.5 py-1 rounded-full border border-outline-variant/30 text-label-sm font-label-sm text-on-surface font-medium shadow-sm">
+              8 spots left
+            </div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+<div class="space-y-2">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-primary font-medium">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Sun, Nov 24 • 4:00 PM – 6:30 PM</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Ceramics Wheel Open Studio
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">pin_drop</span>
+                Clay By The Bay • Nob Hill
+              </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">12 attending</span>
+<button class="bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md px-4 py-2 rounded-xl transition-all active:scale-95 shadow-sm" type="button">
+                RSVP
+              </button>
+</div>
+</div>
+</article>
+<!-- Card 5: Community Board Games & Tea (Canceled State) -->
+<article class="bg-surface-container-lowest/70 opacity-60 rounded-2xl border border-outline-variant/40 overflow-hidden custom-card-shadow flex flex-col group grayscale-[40%]">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img alt="Community Board Games &amp; Tea" class="w-full h-full object-cover" data-alt="A cozy community cafe table setup with artisan wooden tabletop board games, ceramic mugs of steaming herbal tea, and warm ambient string lighting in a neighborhood community hall, captured in a quiet muted tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2cPA8CCyjpwPh36_va-VyYVOiQ03wPFSbauA8Ju6MEi7uW1tk2UNHPxQz2JRHtwh5F_hj9JjggLzP2zNLI8iUdq9WYBYg0ruNB5WYOzJcgepHu9muWKG6HRUB2ipUt8tdaQQfBxSAX6-UwOwKNu436o_mpMvE12PD6pL_vHNHxJvDp46x2k-gSeo0BFJm83jtgOGTLVHOmsrP6OQSVFDof3xraq7kTx7gDOkAe7U"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/90 px-2.5 py-1 rounded-full text-label-sm font-label-sm text-outline font-semibold shadow-sm">
+              Social
+            </div>
+<!-- Bold red canceled status pill -->
+<div class="absolute top-3 right-3 bg-rose-100 text-rose-800 border border-rose-300 px-3 py-1 rounded-full text-label-sm font-label-sm font-bold shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+              Canceled
+            </div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+<div class="space-y-2">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-outline font-medium line-through">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Sun, Nov 24 • 6:00 PM – 9:00 PM</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface-variant line-through line-clamp-1">
+                Community Board Games &amp; Tea
+              </h3>
+<p class="text-body-sm font-body-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span>
+                Center SF • Haight-Ashbury
+              </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-rose-700 font-medium">Event called off by organizer</span>
+<button class="bg-surface-container-high text-outline cursor-not-allowed font-label-md text-label-md px-4 py-2 rounded-xl border border-outline-variant/30" disabled="" type="button">
+                Unavailable
+              </button>
+</div>
+</div>
+</article>
+<!-- Card 6: Indie Hacker Show & Tell (Going / RSVP Confirmed State) -->
+<article class="bg-surface-container-lowest rounded-2xl border-2 border-secondary/30 overflow-hidden custom-card-shadow custom-card-hover flex flex-col group relative">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container">
+<img alt="Indie Hacker Show &amp; Tell" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="An intimate loft meetup of tech creators and digital builders sitting informally on modular sofas, sharing software demos on a clean minimalist projector screen against an exposed timber beam wall in a bright loft space in SoMa San Francisco." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA56N5-y2Jj0VNsvIIUYMfagpU9DQNODnainaPCovDHSqGGxMkq9JLNhRe59gh3fy_eehKSLqPURDTL6hBADDgI6_646BcbgD6hd73yYC3eNHZ4u75mjYkfaG-pzGizCn2U54c6C0V2oDGf6otmkJdHlritQ1V3Ied7NJc1FPwkNBdER-HaJJ6IZw7DKVtgv8StjIfS1wuyo1lxBl1PGleZr9O1na_Sbeufpvcoe7M"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full text-label-sm font-label-sm text-on-surface font-semibold shadow-sm">
+              Popup
+            </div>
+<!-- Confirmed Going Badge -->
+<div class="absolute top-3 right-3 bg-emerald-50 text-emerald-800 border border-emerald-200 backdrop-blur-md px-3 py-1 rounded-full text-label-sm font-label-sm font-semibold shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-emerald-700">check_circle</span>
+              Going
+            </div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+<div class="space-y-2">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">event_seat</span>
+<span>Mon, Nov 25 • 6:30 PM – 8:30 PM</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Indie Hacker Show &amp; Tell
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">pin_drop</span>
+                South Park Commons • SoMa
+              </p>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary font-medium">Your RSVP is confirmed</span>
+<button class="bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 font-label-md text-label-md px-4 py-2 rounded-xl transition-all active:scale-95 flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">done</span>
+                You're Going
+              </button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Skeleton Loading State Section (Design Spec Preview) -->
+<section class="space-y-4 pt-4 border-t border-outline-variant/30">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">hourglass_top</span>
+<span class="text-label-md font-label-md text-on-surface-variant font-medium">Component Preview: Skeleton Shimmer State</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Simulated async load</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Skeleton Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 overflow-hidden p-0 shadow-sm animate-pulse space-y-4">
+<div class="aspect-video w-full bg-surface-container-high"></div>
+<div class="p-5 space-y-3">
+<div class="w-1/3 h-3 bg-surface-container-high rounded-full"></div>
+<div class="w-4/5 h-5 bg-surface-container-high rounded-md"></div>
+<div class="w-1/2 h-3.5 bg-surface-container-high rounded-full"></div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="w-16 h-3 bg-surface-container-high rounded-full"></div>
+<div class="w-16 h-8 bg-surface-container-high rounded-xl"></div>
+</div>
+</div>
+</div>
+<!-- Skeleton Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 overflow-hidden p-0 shadow-sm animate-pulse space-y-4">
+<div class="aspect-video w-full bg-surface-container-high"></div>
+<div class="p-5 space-y-3">
+<div class="w-1/3 h-3 bg-surface-container-high rounded-full"></div>
+<div class="w-3/4 h-5 bg-surface-container-high rounded-md"></div>
+<div class="w-2/5 h-3.5 bg-surface-container-high rounded-full"></div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="w-20 h-3 bg-surface-container-high rounded-full"></div>
+<div class="w-16 h-8 bg-surface-container-high rounded-xl"></div>
+</div>
+</div>
+</div>
+<!-- Skeleton Card 3 -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 overflow-hidden p-0 shadow-sm animate-pulse space-y-4">
+<div class="aspect-video w-full bg-surface-container-high"></div>
+<div class="p-5 space-y-3">
+<div class="w-1/4 h-3 bg-surface-container-high rounded-full"></div>
+<div class="w-2/3 h-5 bg-surface-container-high rounded-md"></div>
+<div class="w-1/2 h-3.5 bg-surface-container-high rounded-full"></div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="w-16 h-3 bg-surface-container-high rounded-full"></div>
+<div class="w-16 h-8 bg-surface-container-high rounded-xl"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Empty State Preview Component -->
+<section class="space-y-4 pt-4 border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">filter_alt_off</span>
+<span class="text-label-md font-label-md text-on-surface-variant font-medium">Component Preview: Clean Empty State</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/50 rounded-2xl p-10 sm:p-14 text-center max-w-2xl mx-auto shadow-sm space-y-4">
+<div class="w-14 h-14 mx-auto rounded-full bg-surface-container flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[28px]">search_off</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+            No events match your filters
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mx-auto">
+            Try selecting another category or city to discover community gatherings near you.
+          </p>
+</div>
+<div class="pt-2">
+<button class="inline-flex items-center gap-2 bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md px-5 py-2.5 rounded-xl shadow-sm transition-all active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+            Clear all filters
+          </button>
+</div>
+</div>
+</section>
+<!-- Pagination -->
+<nav aria-label="Pagination" class="flex items-center justify-center gap-2 pt-6 pb-4">
+<button class="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl border border-outline-variant/50 text-label-md font-label-md text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+        Previous
+      </button>
+<div class="flex items-center gap-1 px-2">
+<button class="w-9 h-9 rounded-xl bg-on-background text-surface-container-lowest text-label-md font-label-md font-semibold flex items-center justify-center shadow-sm" type="button">
+          1
+        </button>
+<button class="w-9 h-9 rounded-xl hover:bg-surface-container-low text-on-surface-variant text-label-md font-label-md flex items-center justify-center transition-colors" type="button">
+          2
+        </button>
+<button class="w-9 h-9 rounded-xl hover:bg-surface-container-low text-on-surface-variant text-label-md font-label-md flex items-center justify-center transition-colors" type="button">
+          3
+        </button>
+<span class="w-8 text-center text-outline text-label-md">…</span>
+<button class="w-9 h-9 rounded-xl hover:bg-surface-container-low text-on-surface-variant text-label-md font-label-md flex items-center justify-center transition-colors" type="button">
+          8
+        </button>
+</div>
+<button class="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl border border-outline-variant/50 text-label-md font-label-md text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+        Next
+        <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</nav>
+</main>
+<!-- Footer (Shared Component JSON Source) -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/30 docked full-width bottom-0 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+<span class="font-headline-sm text-headline-sm font-bold text-on-background">LocalLoop</span>
+<span class="hidden sm:inline text-outline-variant">•</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          © 2025 LocalLoop Inc. All rights reserved. Free RSVPs, zero clutter.
+        </p>
+</div>
+<nav class="flex flex-wrap items-center justify-center gap-6 text-label-sm font-label-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Community Guidelines</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Safety &amp; Trust</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Terms of Service</a>
+</nav>
+</div>
+</footer>
+</body></html>

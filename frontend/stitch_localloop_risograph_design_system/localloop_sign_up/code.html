@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign Up — LocalLoop</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#2a1700",
+            "secondary-fixed-dim": "#4edea3",
+            "surface-container-highest": "#e4e1e6",
+            "tertiary-fixed-dim": "#ffb95f",
+            "on-secondary-fixed": "#002113",
+            "on-primary-fixed": "#0f0069",
+            "surface-container": "#f0edf1",
+            "on-secondary-fixed-variant": "#005236",
+            "secondary": "#006c49",
+            "secondary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#f3f0f4",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed-variant": "#3323cc",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#6cf8bb",
+            "on-surface-variant": "#464555",
+            "inverse-surface": "#303033",
+            "on-secondary-container": "#00714d",
+            "surface-container-high": "#eae7eb",
+            "on-primary-container": "#dad7ff",
+            "error-container": "#ffdad6",
+            "error": "#ba1a1a",
+            "tertiary": "#684000",
+            "surface-variant": "#e4e1e6",
+            "surface-tint": "#4d44e3",
+            "background": "#fbf8fc",
+            "tertiary-fixed": "#ffddb8",
+            "on-background": "#1b1b1e",
+            "primary": "#3525cd",
+            "primary-fixed": "#e2dfff",
+            "outline": "#777587",
+            "primary-container": "#4f46e5",
+            "on-tertiary-fixed-variant": "#653e00",
+            "tertiary-container": "#885500",
+            "surface-container-low": "#f6f2f7",
+            "on-surface": "#1b1b1e",
+            "surface-dim": "#dcd9dd",
+            "inverse-primary": "#c3c0ff",
+            "on-tertiary-container": "#ffd4a4",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#c3c0ff",
+            "on-error": "#ffffff",
+            "surface": "#fbf8fc",
+            "on-error-container": "#93000a",
+            "outline-variant": "#c7c4d8",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#fbf8fc"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin-lg": "4rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Geist"],
+            "headline-lg": ["Geist"],
+            "display-hero-mobile": ["Geist"],
+            "headline-sm": ["Geist"],
+            "body-sm": ["Geist"],
+            "headline-md": ["Geist"],
+            "display-hero": ["Geist"],
+            "label-sm": ["Geist"],
+            "body-lg": ["Geist"],
+            "label-md": ["Geist"],
+            "body-md": ["Geist"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "headline-sm": ["16px", { "lineHeight": "22px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "-0.005em", "fontWeight": "500" }],
+            "body-md": ["15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Header: Minimal registration bar with back navigation & brand mark -->
+<header class="sticky top-0 z-50 h-16 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/40 shadow-sm transition-all duration-150">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+<!-- Wordmark & Logo anchor -->
+<a class="flex items-center gap-2 group transition-all duration-150 active:scale-[0.98]" href="#">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">all_inclusive</span>
+</div>
+<span class="font-headline-md text-headline-md tracking-tight font-bold text-on-background group-hover:text-primary transition-colors">
+          LocalLoop
+        </span>
+</a>
+<!-- Minimal Destination Link -->
+<a class="inline-flex items-center gap-1.5 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1 px-3 rounded-lg hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Browse events</span>
+</a>
+</div>
+</header>
+<!-- Main Canvas: Focused registration journey -->
+<main class="flex-1 flex items-center justify-center px-4 py-10 sm:py-16">
+<div class="w-full max-w-[480px]">
+<!-- Registration Card Surface (z1 layer with tactile elevation) -->
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl shadow-[0_1px_3px_0_rgba(24,24,27,0.04),0_1px_2px_-1px_rgba(24,24,27,0.03)] p-6 sm:p-8 transition-all duration-200">
+<!-- Header badge & titles inside card -->
+<div class="text-center mb-6">
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-fixed text-primary mb-3.5 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">person_add</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-background tracking-tight">
+            Join LocalLoop
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1.5 max-w-sm mx-auto">
+            Create a free account to discover and RSVP for local community events.
+          </p>
+</div>
+<!-- Mode Switcher: Segmented Toggle -->
+<div class="bg-surface-container-low p-1 rounded-xl flex items-center mb-6 border border-outline-variant/20">
+<button class="flex-1 py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-background transition-colors duration-150" type="button">
+            Log in
+          </button>
+<button class="flex-1 py-1.5 rounded-lg font-label-md text-label-md bg-surface-container-lowest text-on-background font-medium shadow-sm transition-colors duration-150" type="button">
+            Sign up
+          </button>
+</div>
+<!-- Registration Form (strictly direct email & password credentials) -->
+<form class="space-y-4" onsubmit="event.preventDefault()">
+<!-- Full Name Field -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block font-label-md text-label-md text-on-background" for="fullName">
+                Full name
+              </label>
+<span class="hidden items-center gap-1 font-label-sm text-label-sm text-secondary" id="nameBadge">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Ready
+              </span>
+</div>
+<div class="relative">
+<input class="w-full rounded-lg border border-outline-variant/60 bg-surface-container-lowest px-3.5 py-2.5 font-body-md text-body-md text-on-background placeholder:text-outline/70 focus:border-primary-container focus:ring-2 focus:ring-primary-container/15 transition-all outline-none" id="fullName" placeholder="Sarah Jenkins" type="text" value="Sarah Jenkins"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+</div>
+</div>
+<!-- Email Address Field -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block font-label-md text-label-md text-on-background" for="email">
+                Email address
+              </label>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="emailStatus">
+                Used for instant RSVP confirmations
+              </span>
+</div>
+<div class="relative">
+<input class="w-full rounded-lg border border-outline-variant/60 bg-surface-container-lowest px-3.5 py-2.5 font-body-md text-body-md text-on-background placeholder:text-outline/70 focus:border-primary-container focus:ring-2 focus:ring-primary-container/15 transition-all outline-none" id="email" placeholder="sarah.jenkins@example.com" type="email" value="sarah.jenkins@example.com"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+</div>
+</div>
+<!-- Password Field -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block font-label-md text-label-md text-on-background" for="password">
+                Password
+              </label>
+</div>
+<div class="relative">
+<input class="w-full rounded-lg border border-outline-variant/60 bg-surface-container-lowest px-3.5 py-2.5 pr-10 font-body-md text-body-md text-on-background placeholder:text-outline/70 focus:border-primary-container focus:ring-2 focus:ring-primary-container/15 transition-all outline-none" id="password" placeholder="Create a password (min. 8 characters)" type="password" value="Neighborhood2025!"/>
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 flex items-center pr-3 text-on-surface-variant hover:text-on-background focus:outline-none transition-colors" id="togglePassword" type="button">
+<span class="material-symbols-outlined text-[18px]" id="eyeIcon">visibility_off</span>
+</button>
+</div>
+<!-- Password Requirements & Real-time Strength Meter -->
+<div class="mt-2.5 space-y-2 bg-surface-container-low/70 rounded-lg p-2.5 border border-outline-variant/30">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Security Strength</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Strong</span>
+</div>
+<!-- Progress Bars -->
+<div class="grid grid-cols-3 gap-1.5 h-1">
+<div class="rounded-full bg-secondary"></div>
+<div class="rounded-full bg-secondary"></div>
+<div class="rounded-full bg-secondary"></div>
+</div>
+<div class="flex items-center gap-3 pt-1">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>8+ characters</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>Letters &amp; numbers</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Terms & Community Consent -->
+<div class="pt-1">
+<label class="flex items-start gap-2.5 cursor-pointer select-none">
+<input checked="" class="mt-1 h-4 w-4 rounded border-outline-variant text-primary-container focus:ring-primary-container/20 cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+                By creating an account, you agree to LocalLoop's 
+                <a class="text-on-background hover:text-primary underline underline-offset-2 transition-colors" href="#">Terms of Service</a> 
+                and 
+                <a class="text-on-background hover:text-primary underline underline-offset-2 transition-colors" href="#">Community Guidelines</a>.
+              </span>
+</label>
+</div>
+<!-- Primary Submit Action -->
+<div class="pt-2">
+<button class="w-full flex items-center justify-center gap-2 rounded-lg bg-primary-container text-on-primary px-4 py-3 font-label-md text-label-md shadow-sm hover:bg-primary transition-all duration-150 active:scale-[0.98]" type="submit">
+<span>Create Account</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Organizer Callout / Zero-Fees Assurance Box -->
+<div class="mt-6 pt-5 border-t border-outline-variant/30">
+<div class="rounded-lg bg-surface-container-low p-3.5 border border-outline-variant/20 flex gap-3 items-start">
+<div class="text-secondary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-background font-medium">
+                Zero ticketing fees, ever.
+              </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-normal">
+                LocalLoop events are 100% free to attend. Want to host events? You can activate organizer tools anytime inside your profile after signing up.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary login anchor below card -->
+<div class="text-center mt-5">
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Already have an account? 
+          <a class="text-primary font-medium hover:underline underline-offset-2 transition-colors" href="#">
+            Log in
+          </a>
+</p>
+</div>
+</div>
+</main>
+<!-- Footer Component matching Shared Components JSON specification -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 transition-colors">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+<!-- Copyright text -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        © 2025 LocalLoop Inc. All rights reserved. Free RSVPs, zero clutter.
+      </p>
+<!-- Nav Links -->
+<div class="flex flex-wrap items-center justify-center gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">
+          About
+        </a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">
+          Community Guidelines
+        </a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">
+          Safety &amp; Trust
+        </a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">
+          Privacy Policy
+        </a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">
+          Terms of Service
+        </a>
+</div>
+</div>
+</footer>
+<script>
+    // Micro-interaction for toggling password visibility
+    const passwordInput = document.getElementById('password');
+    const toggleBtn = document.getElementById('togglePassword');
+    const eyeIcon = document.getElementById('eyeIcon');
+
+    if (toggleBtn && passwordInput && eyeIcon) {
+      toggleBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+        eyeIcon.textContent = isPassword ? 'visibility' : 'visibility_off';
+      });
+    }
+  </script>
+</body></html>

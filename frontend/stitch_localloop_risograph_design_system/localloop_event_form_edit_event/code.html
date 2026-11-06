@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LocalLoop — Edit Community Event</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#fbf8fc",
+            "primary-fixed-dim": "#c3c0ff",
+            "on-secondary-container": "#00714d",
+            "surface-container-highest": "#e4e1e6",
+            "surface-container-high": "#eae7eb",
+            "tertiary-container": "#885500",
+            "secondary-container": "#6cf8bb",
+            "on-secondary-fixed-variant": "#005236",
+            "background": "#fbf8fc",
+            "outline-variant": "#c7c4d8",
+            "outline": "#777587",
+            "primary-container": "#4f46e5",
+            "primary": "#3525cd",
+            "secondary-fixed-dim": "#4edea3",
+            "surface-dim": "#dcd9dd",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#c3c0ff",
+            "surface-tint": "#4d44e3",
+            "tertiary": "#684000",
+            "on-tertiary-container": "#ffd4a4",
+            "inverse-on-surface": "#f3f0f4",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#303033",
+            "surface-bright": "#fbf8fc",
+            "secondary": "#006c49",
+            "surface-variant": "#e4e1e6",
+            "surface-container-low": "#f6f2f7",
+            "on-primary-fixed-variant": "#3323cc",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#653e00",
+            "on-primary-container": "#dad7ff",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#ffb95f",
+            "on-secondary-fixed": "#002113",
+            "on-tertiary-fixed": "#2a1700",
+            "primary-fixed": "#e2dfff",
+            "on-error": "#ffffff",
+            "on-background": "#1b1b1e",
+            "surface-container": "#f0edf1",
+            "on-surface-variant": "#464555",
+            "on-surface": "#1b1b1e",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#6ffbbe",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#0f0069",
+            "tertiary-fixed": "#ffddb8",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem",
+            "margin-lg": "4rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Geist"],
+            "display-hero-mobile": ["Geist"],
+            "headline-lg-mobile": ["Geist"],
+            "body-md": ["Geist"],
+            "body-lg": ["Geist"],
+            "headline-lg": ["Geist"],
+            "label-md": ["Geist"],
+            "display-hero": ["Geist"],
+            "label-sm": ["Geist"],
+            "body-sm": ["Geist"],
+            "headline-sm": ["Geist"]
+          },
+          "fontSize": {
+            "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-lg": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "-0.005em", "fontWeight": "500" }],
+            "display-hero": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["16px", { "lineHeight": "22px", "letterSpacing": "-0.015em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TOP APP BAR (Shared Component JSON execution) -->
+<header class="bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/40 shadow-sm docked full-width top-0 sticky z-50 h-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
+<!-- Left cluster: Brand & Search bar -->
+<div class="flex items-center gap-6">
+<a class="font-headline-md text-headline-md tracking-tight font-bold text-on-background flex items-center gap-2" href="#">
+<span class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+</span>
+<span>LocalLoop</span>
+</a>
+<!-- Search Bar on left -->
+<div class="relative hidden sm:block w-64 lg:w-72">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-outline">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</span>
+<input class="w-full pl-9 pr-3 py-1.5 text-body-sm bg-surface-container-low border border-outline-variant/50 rounded-lg text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Search neighborhood events..." type="text"/>
+</div>
+</div>
+<!-- Center navigation links -->
+<nav class="hidden md:flex items-center gap-6 h-full pt-1">
+<a class="text-on-surface-variant hover:text-on-background transition-colors pb-1 flex items-center font-label-md text-label-md" href="#">
+          Browse
+        </a>
+<a class="text-on-surface-variant hover:text-on-background transition-colors pb-1 flex items-center font-label-md text-label-md" href="#">
+          My RSVPs
+        </a>
+<!-- ACTIVE TAB: Organizer -->
+<a class="text-primary font-medium border-b-2 border-primary pb-1 flex items-center font-label-md text-label-md" href="#">
+          Organizer
+        </a>
+</nav>
+<!-- Trailing actions: Notifications, Create Event, Maya S. Avatar -->
+<div class="flex items-center gap-3">
+<button aria-label="Notifications" class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-150 rounded-lg">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<a class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>Create Event</span>
+</a>
+<!-- Profile pill avatar: Maya S. -->
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant/40">
+<img alt="User avatar" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/50" data-alt="Editorial portrait of Maya S., a creative workshop organizer with a warm smile, styled in soft natural indoor studio light with neutral warm stone accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZkt_kF2iXmS3A1rFmu4yAOjHXNbvQfXKHXQVQEE_0VLmp3Pc2qOLUUn0XL7LD2FPlXfM62zwoe7Lm46xsUPO-LsNdTXTj3UHNVoLvVNjF1T8L8bVHi6zlSjC3F1wWbhf-Ytj-3EFIZApcqLAuFYLfbd5xxAuMv7wMsQqaMc0_KWbiVenrvYeiuqCUCd9pvr8hSVVY0-z1S5NiHouFBg2PqdG1lqd4tKlsa-BCOfM"/>
+<span class="hidden lg:inline text-body-sm font-medium text-on-surface">Maya S.</span>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS: FOCUSED SINGLE COLUMN -->
+<main class="flex-1 pb-32 pt-8">
+<div class="max-w-[720px] mx-auto px-4 sm:px-6">
+<!-- Breadcrumbs & Header -->
+<div class="mb-8">
+<nav class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant mb-2">
+<a class="hover:text-primary transition-colors" href="#">Organizer Dashboard</a>
+<span class="material-symbols-outlined text-outline-variant text-[16px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface font-medium">Edit Event</span>
+</nav>
+<div class="flex items-center justify-between gap-4 flex-wrap">
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg tracking-tight text-on-background">
+              Edit Community Event
+            </h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container border border-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Edit Mode
+            </span>
+</div>
+<!-- Mode / Context Toggle -->
+<div class="inline-flex p-1 bg-surface-container rounded-lg border border-outline-variant/30 text-label-sm font-label-sm">
+<button class="px-3 py-1 rounded bg-surface-container-lowest text-on-background shadow-xs font-semibold" type="button">Editing Active (ID #882)</button>
+<button class="px-3 py-1 rounded text-on-surface-variant hover:text-on-surface transition-colors" type="button">Preview Public</button>
+</div>
+</div>
+<p class="mt-2 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+          Events on LocalLoop are free for all neighbors. Set clear attendance capacity to keep sessions comfortable and meaningful.
+        </p>
+</div>
+<!-- FORM CONTENT CARDS -->
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<!-- SECTION 1: BASICS -->
+<section class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/40 shadow-sm transition-all">
+<div class="flex items-center gap-2.5 pb-4 mb-5 border-b border-outline-variant/20">
+<span class="w-7 h-7 rounded-md bg-primary-fixed text-primary flex items-center justify-center font-label-md">1</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Event Basics</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Core details neighbors see on the neighborhood bulletin board.</p>
+</div>
+</div>
+<div class="space-y-5">
+<!-- Event Title -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-md text-label-md text-on-background" for="event-title">Event Title <span class="text-error">*</span></label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">54 / 80 characters</span>
+</div>
+<input class="w-full px-3.5 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-background font-body-md text-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="event-title" maxlength="80" type="text" value="Ceramics Wheel Open Studio: Glazing &amp; Hand-Throwing"/>
+</div>
+<!-- Category Pills -->
+<div>
+<label class="block font-label-md text-label-md text-on-background mb-2">Category <span class="text-error">*</span></label>
+<div class="flex flex-wrap gap-2">
+<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md border border-outline-variant/50 text-on-surface-variant hover:border-primary-container transition-all" type="button">
+                  Workshop
+                </button>
+<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md border border-outline-variant/50 text-on-surface-variant hover:border-primary-container transition-all" type="button">
+                  Meetup
+                </button>
+<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md border border-outline-variant/50 text-on-surface-variant hover:border-primary-container transition-all" type="button">
+                  Social
+                </button>
+<!-- Selected Pill -->
+<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary border border-primary shadow-xs flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+                  Arts &amp; Crafts
+                </button>
+<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md border border-outline-variant/50 text-on-surface-variant hover:border-primary-container transition-all" type="button">
+                  Discussion
+                </button>
+<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md border border-outline-variant/50 text-on-surface-variant hover:border-primary-container transition-all" type="button">
+                  Outdoor
+                </button>
+</div>
+</div>
+<!-- About / Description -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-md text-label-md text-on-background" for="event-desc">Short Description / About <span class="text-error">*</span></label>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span> Markdown supported
+                </span>
+</div>
+<textarea class="w-full px-3.5 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-background font-body-md text-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="event-desc" rows="4">Join fellow local potters and curious beginners for our bi-weekly open studio night. Bring bisqueware you'd like to glaze, or learn wheel centering techniques. Basic clay, wheel slots, and high-fire cone 10 glazes are provided at zero cost. Aprons recommended!</textarea>
+<p class="mt-1.5 font-body-sm text-body-sm text-on-surface-variant">Describe what attendees should bring, what's provided, and general session flow.</p>
+</div>
+<!-- Cover Photo Upload / Preview -->
+<div>
+<label class="block font-label-md text-label-md text-on-background mb-1.5">Cover Photo</label>
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded-xl border border-outline-variant/30">
+<div class="relative w-28 h-20 rounded-lg overflow-hidden shrink-0 border border-outline-variant/40 shadow-xs">
+<img alt="Ceramics wheel studio event cover" class="w-full h-full object-cover" data-alt="Close up photograph of artisan ceramic pottery bowls arranged on a sunlit studio wooden table with soft clay textures and natural daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Qg8SIWE3R8QKDtMmfb8XKlLzf4s1kz4fj3KrD4clVCOohjPxKDa0rFbcr4qC_LIOJHbAJiUPQt2MNuNzcVJp-rSgxPc2iO4PAosnx20LkBei5L722st2ZIFXfb1NnQ7pO_CECXtecsV_XaVt-i-z3XSozqdwqS0nv-iBbDi-d7t5kTgng8wmW_HMCU5R_sf_u4G_xpRO8seKUXSYcoak4M2hVRon8_O-9HeZpQI"/>
+<div class="absolute inset-0 bg-on-background/10"></div>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-background truncate">studio-clay-glazing-banner.jpg</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Recommended 16:9 ratio, min 1200x675px. Max 5MB.</p>
+<div class="mt-2 flex items-center gap-2">
+<button class="px-2.5 py-1 text-label-sm font-label-sm bg-surface-container-lowest border border-outline-variant/60 rounded-md text-on-surface hover:border-primary-container transition-colors" type="button">
+                      Change cover
+                    </button>
+<button class="px-2 py-1 text-label-sm font-label-sm text-error hover:bg-error-container/30 rounded-md transition-colors" type="button">
+                      Remove
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: LOCATION -->
+<section class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/40 shadow-sm transition-all">
+<div class="flex items-center gap-2.5 pb-4 mb-5 border-b border-outline-variant/20">
+<span class="w-7 h-7 rounded-md bg-primary-fixed text-primary flex items-center justify-center font-label-md">2</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Location &amp; Accessibility</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Help neighbors arrive effortlessly and respect venue guidelines.</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- City -->
+<div>
+<label class="block font-label-md text-label-md text-on-background mb-1.5" for="city">City <span class="text-error">*</span></label>
+<input class="w-full px-3.5 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-background font-body-md text-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="city" type="text" value="San Francisco, CA"/>
+</div>
+<!-- Neighborhood -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-md text-label-md text-on-background" for="neighborhood">Neighborhood</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Optional</span>
+</div>
+<input class="w-full px-3.5 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-background font-body-md text-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="neighborhood" type="text" value="Nob Hill / Polk Gulch"/>
+</div>
+</div>
+<!-- Venue Name & Street Address -->
+<div>
+<label class="block font-label-md text-label-md text-on-background mb-1.5" for="venue-address">Venue name &amp; physical address <span class="text-error">*</span></label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-outline">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</span>
+<input class="w-full pl-10 pr-3.5 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-background font-body-md text-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="venue-address" type="text" value="Clay By The Bay — Studio 2 (1616 Polk St)"/>
+</div>
+</div>
+<!-- Accessibility & Parking Note -->
+<div>
+<label class="block font-label-md text-label-md text-on-background mb-1.5" for="access-note">Venue accessibility or arrival notes</label>
+<input class="w-full px-3.5 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-background font-body-md text-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="access-note" placeholder="e.g. Ramp entrance on side alley, 2nd floor walkup, bike racks available" type="text" value="Step-free entrance via side ramp on Sacramento St. Metered street parking available or 2 blocks from California St cable car line."/>
+</div>
+</div>
+</section>
+<!-- SECTION 3: SCHEDULE -->
+<section class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/40 shadow-sm transition-all">
+<div class="flex items-center gap-2.5 pb-4 mb-5 border-b border-outline-variant/20">
+<span class="w-7 h-7 rounded-md bg-primary-fixed text-primary flex items-center justify-center font-label-md">3</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Date &amp; Schedule</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Set date and time window. Accurate end times keep community hosts organized.</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Start Date & Time -->
+<div>
+<label class="block font-label-md text-label-md text-on-background mb-1.5" for="start-date">Start Date &amp; Time <span class="text-error">*</span></label>
+<div class="grid grid-cols-5 gap-2">
+<input class="col-span-3 px-3 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-background font-body-md text-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="start-date" type="text" value="Nov 24, 2024"/>
+<input class="col-span-2 px-3 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-background font-body-md text-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="start-time" type="text" value="4:00 PM"/>
+</div>
+</div>
+<!-- End Date & Time (with inline validation demonstrator) -->
+<div>
+<label class="block font-label-md text-label-md text-on-background mb-1.5" for="end-date">End Date &amp; Time <span class="text-error">*</span></label>
+<div class="grid grid-cols-5 gap-2">
+<input class="col-span-3 px-3 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-background font-body-md text-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="end-date" type="text" value="Nov 24, 2024"/>
+<input class="col-span-2 px-3 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-background font-body-md text-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="end-time" type="text" value="6:30 PM"/>
+</div>
+</div>
+</div>
+<!-- Timezone + Validation Demonstration Notice -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span>Timezone: PST (Pacific Standard Time)</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+                2 hr 30 min duration
+              </span>
+</div>
+<!-- Inline Validation Demonstration Box (Simulated state) -->
+<div class="mt-2 p-3 rounded-lg bg-surface-container-low border border-outline-variant/40 flex items-start gap-3">
+<span class="material-symbols-outlined text-outline text-[20px] shrink-0 mt-0.5" data-icon="info">info</span>
+<div class="text-body-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">Smart Auto-lock:</span> LocalLoop automatically sends reminder calendar tokens (.ics) 24 hours prior to Sunday, Nov 24.
+              </div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: CAPACITY & ATTENDANCE -->
+<section class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/40 shadow-sm transition-all">
+<div class="flex items-center gap-2.5 pb-4 mb-5 border-b border-outline-variant/20">
+<span class="w-7 h-7 rounded-md bg-primary-fixed text-primary flex items-center justify-center font-label-md">4</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Capacity &amp; Attendance Limit</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Zero tickets or waitlist clutter. Once capacity hits the ceiling, the listing closes.</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="max-w-xs">
+<label class="block font-label-md text-label-md text-on-background mb-1.5" for="max-capacity">Maximum Capacity (Attendees) <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-background font-body-md text-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="max-capacity" max="500" min="1" type="number" value="40"/>
+<span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-on-surface-variant font-label-sm text-label-sm">spots total</span>
+</div>
+</div>
+<!-- Clear helper explanation box -->
+<div class="p-3.5 bg-surface-container-low rounded-lg border border-outline-variant/30 text-body-sm text-on-surface-variant flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0" data-icon="lock_clock">lock_clock</span>
+<p>
+<strong class="text-on-surface font-medium">Free RSVPs, zero clutter:</strong> LocalLoop gatherings never charge fees. Currently <strong class="text-on-surface">28 neighbors are confirmed</strong>. Once 40 RSVPs are claimed, the event will automatically mark as full.
+              </p>
+</div>
+<!-- Checkbox Toggle -->
+<label class="flex items-start gap-3 pt-2 cursor-pointer select-none">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary-container border-outline-variant focus:ring-primary-container" type="checkbox"/>
+<div>
+<span class="font-label-md text-label-md text-on-background block">Allow guests to bring +1 (counts toward total capacity)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">When checked, an attendee can register 2 spots with their name and single confirmation email.</span>
+</div>
+</label>
+</div>
+</section>
+</form>
+</div>
+</main>
+<!-- STICKY BOTTOM ACTION BAR DOCKED AT VIEWPORT BOTTOM -->
+<div class="fixed bottom-0 inset-x-0 bg-surface-container-lowest/95 backdrop-blur-md border-t border-outline-variant/40 z-40 py-3.5 shadow-lg">
+<div class="max-w-[720px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
+<!-- Left side: Cancel Event danger trigger -->
+<div>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-error/40 text-error hover:bg-error-container/30 font-label-md text-label-md transition-colors" onclick="document.getElementById('cancel-modal').classList.remove('hidden')" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+<span>Cancel Event</span>
+</button>
+</div>
+<!-- Right side: Status and actions -->
+<div class="flex items-center gap-3">
+<span class="hidden sm:inline font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+          Unsaved changes
+        </span>
+<a class="px-4 py-2 rounded-lg border border-outline-variant/60 text-on-surface hover:bg-surface-container-low font-label-md text-label-md transition-colors" href="#">
+          Discard
+        </a>
+<button class="px-5 py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-all active:scale-[0.98] flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="save">save</span>
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CONFIRMATION MODAL OVERLAY: 'CANCEL EVENT' -->
+<div aria-labelledby="modal-title" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-on-background/40 backdrop-blur-sm hidden" id="cancel-modal" role="dialog">
+<div class="bg-surface-container-lowest rounded-xl max-w-md w-full p-6 border border-outline-variant/40 shadow-2xl transition-all">
+<div class="flex items-start gap-3.5 mb-4">
+<div class="w-10 h-10 rounded-full bg-error-container/60 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="warning">warning</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-background" id="modal-title">Cancel this community event?</h3>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Cancelling will notify all <strong class="text-on-surface">28 confirmed neighbors</strong> via direct email notification and immediately mark this gathering as canceled on the neighborhood bulletin board.
+          </p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 border border-outline-variant/30 text-body-sm text-on-surface-variant mb-6">
+<p class="font-medium text-on-surface mb-0.5">Event:</p>
+<p class="truncate">Ceramics Wheel Open Studio: Glazing &amp; Hand-Throwing</p>
+<p class="font-label-sm text-label-sm text-outline mt-1">Scheduled: Sunday, Nov 24, 2024 at 4:00 PM</p>
+</div>
+<div class="flex items-center justify-end gap-3">
+<button class="px-4 py-2 rounded-lg border border-outline-variant/60 text-on-surface hover:bg-surface-container-low font-label-md text-label-md transition-colors" onclick="document.getElementById('cancel-modal').classList.add('hidden')" type="button">
+          Keep Event
+        </button>
+<button class="px-4 py-2 rounded-lg bg-error text-on-error hover:bg-on-error-container font-label-md text-label-md transition-colors shadow-sm" onclick="document.getElementById('cancel-modal').classList.add('hidden')" type="button">
+          Yes, Cancel Event
+        </button>
+</div>
+</div>
+</div>
+<!-- FOOTER (Shared Component JSON execution) -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/30 docked full-width bottom-0 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+<span class="font-headline-sm text-headline-sm font-bold text-on-background flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="hub">hub</span>
+          LocalLoop
+        </span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">
+          © 2025 LocalLoop Inc. All rights reserved. Free RSVPs, zero clutter.
+        </span>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-5 font-label-sm text-label-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Community Guidelines</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Safety &amp; Trust</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>
